@@ -122,7 +122,7 @@ cal((2, 3, 4))
 def calmult(*numbers):
     num = 0
     for n in numbers:
-        if not isinstance(n,(int, float))
+        if not isinstance(n,(int, float)):
             raise  TypeError('number mast be init or float')
         num += n * n
     print num
@@ -139,6 +139,44 @@ calmult(*numberTuple)
 
 
 #关键字参数
-##可变参数允许传入任意个参数，
+##可变参数允许传入任意个参数，可变参数在函数调用时会自动组装成一个元组。
+##关键字参数允许传入任意个含参数名的参数，这些关键字参数在函数内部自动组装成一个dict
+
+def person(name, age, **kv):
+    print('name:', name, 'age:', age, 'other:', kv)
+
+person('Jone', 30)
+
+#字典可以使用**-operator提供关键字参数
+d = {'name': 'Jone', 'age': 14, 'city': 'Beijing'}
+person(**d)
+
+person('M', 50, city='beijing')
+
+person('W', 24, city='shanghai', gender=1)
+
+#对于关键字参数而言，用户可以传不受限制的参数。具体传入了哪些参数，需要在函数内部对kv进行检查
+
+def person1(name, age, **kv):
+    if 'city' in kv:
+        pass
+    if 'gender' in kv:
+        pass
+
+    print('name:', name, 'age:', age, 'other:', kv)
+
+r = range(3, 6)
+print r
+rgs = [3, 7]
+print range(*rgs)
+
+#lambda表达式
+def make_incrementor(n):
+    return lambda x: x*n
+
+f = make_incrementor(15)
+
+
+print f(11)
 
 
