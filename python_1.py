@@ -34,4 +34,11 @@ print(t)
 t[2][1] = 'Hello'
 print(t)
 
+t = 1,
+print t
+
+t = '123', '234', '345'
+x, y, z = t
+print x, y, z
+
 

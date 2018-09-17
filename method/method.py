@@ -179,4 +179,6 @@ f = make_incrementor(15)
 
 print f(11)
 
+print map([x ** 2 for x in range(10)])
+
 
